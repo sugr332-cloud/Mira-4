@@ -10,9 +10,11 @@ Stream Dock のボタンから、アプリの起動／最前面化、音声デ�
 | `launch-companion.bat` | FullAIon2Companion 用 |
 | `launch-aion2.bat` | AION2 (Steam `3393110`) 用 |
 | `launch-orca.bat` | Orca 用。中央をクリックしてチャット欄にフォーカスも合わせる |
+| `launch-discord.bat` | Edge の Web アプリ版 Discord 用。起動済みならそのウィンドウを前面化（新しいタブ／ウィンドウは開かない） |
+| `launch-youtube.bat` | Edge の Web アプリ版 YouTube 用（Discord と同じ動作） |
 | `toggle-audio.bat` / `.ps1` | 出力＋マイクを スピーカー ⇔ ヘッドセット で切り替え |
 | `config.json` | 切り替え対象のデバイス名（部分一致） |
-| `icons/` | ボタン用アイコン (`orca-icon.png`, `aion2-icon.ico`, `companion-icon.ico`) |
+| `icons/` | ボタン用アイコン (`orca-icon.png`, `aion2-icon.ico`, `companion-icon.ico`, `discord-icon.png`, `youtube-icon.png`) |
 
 ## 使う前の準備
 
@@ -36,6 +38,8 @@ Stream Dock のボタンから、アプリの起動／最前面化、音声デ�
 | ボタン | App/File | パラメータ | アイコン |
 |---|---|---|---|
 | Orca | `launch-orca.bat` | なし | `icons\orca-icon.png` |
+| Discord | `launch-discord.bat` | なし | `icons/discord-icon.png` |
+| YouTube | `launch-youtube.bat` | なし | `icons/youtube-icon.png` |
 | AION2 | `launch-aion2.bat` | なし | `icons\aion2-icon.ico` |
 | Companion | `launch-companion.bat` | なし | `icons\companion-icon.ico` |
 | ヘッドセットへ | `toggle-audio.bat` | `-To headset` | 任意 |
@@ -58,3 +62,5 @@ myapp = @{ Process = 'プロセス名'; Launch = 'exeのパス または steam:/
 - 管理者権限で動くアプリは、通常権限のスクリプトから前面化できないことがある。
 - フルスクリーンのゲームでは、カーソルの中央移動が合わない場合がある。
 - 前面化に Alt キーの単独押しは使わない（アプリのメニューが有効になり、Ctrl+C などが効かなくなるため）。
+- **管理者権限で動くアプリ（AION2 など）が前面にある間は、通常権限のこのスクリプトから他のアプリを前面化できない**（Windows の仕様）。ゲーム起動中に使うには、スクリプトも管理者権限で動かす必要がある。
+- `.ps1` は日本語コメントを含むため **UTF-8 (BOM 付き)** で保存すること。BOM 無しだと Windows PowerShell 5.1 が文字化けして構文エラーになる。
