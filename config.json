@@ -1,0 +1,4 @@
+{
+  "headset": { "output": "Razer BlackShark", "mic": "Razer BlackShark" },
+  "speaker": { "output": "PcSpeaker",         "mic": "Realtek" }
+}
