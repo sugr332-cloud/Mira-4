@@ -113,8 +113,8 @@ if ($a.Click) {
     [Win]::mouse_event(0x0004, 0, 0, 0, [UIntPtr]::Zero)   # 左ボタン解放
 }
 
-# ゲーム等に前面を奪い返された場合に備え、数秒間は目的のウィンドウが前面か見張って取り返す
-for ($i = 0; $i -lt 40; $i++) {
+# ゲーム等に前面を奪い返された場合に備え、約1秒間は目的のウィンドウが前面か見張って取り返す
+for ($i = 0; $i -lt 7; $i++) {
     Start-Sleep -Milliseconds 150
     if ([Win]::GetForegroundWindow() -ne $h) { [void][Win]::SetForegroundWindow($h); [Win]::SwitchToThisWindow($h, $true) }
 }
